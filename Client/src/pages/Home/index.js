@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import Slider from "../../components/Slider";
 import TypeProducts from "../../components/TypeProducts";
+import CardProduct from "../../components/Card";
 
 const Home = () => {
   const arr = ["TV", "Laptop", "Điện thoại", "Tai nghe", "Loa"];
@@ -13,6 +14,7 @@ const Home = () => {
         })}
       </TypeProductst>
        <Slider/>
+       <CardProduct/>
       <div>Home</div>
     </div>
   );
