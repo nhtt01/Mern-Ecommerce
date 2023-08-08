@@ -12,7 +12,7 @@ const Navbar = () => {
           return <li key={item}>{item}</li>;
         });
 
-      case "checkBox":
+      case "CheckBox":
         return (
           <Checkbox.Group
             style={{
@@ -48,6 +48,10 @@ const Navbar = () => {
           {
             value: "A",
             name: "A",
+          },
+          {
+            value: "B",
+            name: "B",
           },
         ])}
       </div>
