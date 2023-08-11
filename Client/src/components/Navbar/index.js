@@ -12,16 +12,22 @@ const Navbar = () => {
           return <li key={item}>{item}</li>;
         });
 
-      case "checkBox":
+      case "CheckBox":
         return (
           <Checkbox.Group
             style={{
               width: "100%",
+              display: "flex",
+              flexDirection: "column",
             }}
             onChange={onChange}
           >
             {option.map((item) => {
-              return (<Checkbox key={item} value={item.value}>{item.name}</Checkbox>)
+              return (
+                <Checkbox key={item} value={item.value}>
+                  {item.name}
+                </Checkbox>
+              );
             })}
           </Checkbox.Group>
         );
@@ -48,6 +54,10 @@ const Navbar = () => {
           {
             value: "A",
             name: "A",
+          },
+          {
+            value: "B",
+            name: "B",
           },
         ])}
       </div>
