@@ -1,4 +1,4 @@
-import { Checkbox, Col, Row } from "antd";
+import { Checkbox, Col, Rate, Row } from "antd";
 import React from "react";
 import "./style.css";
 const Navbar = () => {
@@ -31,6 +31,24 @@ const Navbar = () => {
             })}
           </Checkbox.Group>
         );
+        case "Star":
+          return (
+          <div 
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+          }}>
+              {option.map((item) => {
+                return (
+                  <Rate disabled defaultValue={item} />
+
+                );
+              })}
+              </div>
+          );
+          
+
       default:
         return {};
     }
@@ -60,6 +78,9 @@ const Navbar = () => {
             name: "B",
           },
         ])}
+      </div>
+      <div className="Star">
+        {renderContent("Star",[ 5,4,3])}
       </div>
     </div>
   );
