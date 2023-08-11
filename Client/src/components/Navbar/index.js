@@ -17,11 +17,17 @@ const Navbar = () => {
           <Checkbox.Group
             style={{
               width: "100%",
+              display: "flex",
+              flexDirection: "column",
             }}
             onChange={onChange}
           >
             {option.map((item) => {
-              return (<Checkbox key={item} value={item.value}>{item.name}</Checkbox>)
+              return (
+                <Checkbox key={item} value={item.value}>
+                  {item.name}
+                </Checkbox>
+              );
             })}
           </Checkbox.Group>
         );
