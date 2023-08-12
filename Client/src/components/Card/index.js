@@ -22,7 +22,7 @@ const CardProduct = () => {
         }
       >
       <img src={Official} style={{width: "70px"}}/>
-        <h3>Apple iPhone 14 Pro</h3>
+        <h3 style={{fontSize:"16px"}}>Apple iPhone 14 Pro</h3>
         <div>
           <span>4.5</span> <StarFilled style={{color:"rgb(255, 196, 0)"}} /> | <span>Đã bán 1000+</span>
         </div>

@@ -1,89 +1,57 @@
-import { Checkbox, Col, Rate, Row } from "antd";
-import React from "react";
-import "./style.css";
-const Navbar = () => {
-  const onChange = (checkedValues) => {
-    console.log("checked = ", checkedValues);
-  };
-  const renderContent = (type, option) => {
-    switch (type) {
-      case "text":
-        return option.map((item) => {
-          return <li key={item}>{item}</li>;
-        });
+import { Checkbox, Col, Rate, Row } from 'antd'
+import React from 'react'
+import { WrapperContent, WrapperLableText, WrapperTextPrice, WrapperTextValue } from './style'
 
-      case "CheckBox":
-        return (
-          <Checkbox.Group
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-            }}
-            onChange={onChange}
-          >
-            {option.map((item) => {
-              return (
-                <Checkbox key={item} value={item.value}>
-                  {item.name}
-                </Checkbox>
-              );
-            })}
-          </Checkbox.Group>
-        );
-        case "Star":
-          return (
-          <div 
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-          }}>
-              {option.map((item) => {
+const NavBarComponent = () => {
+    const onChange = () => { }
+    const renderContent = (type, options) => {
+        switch (type) {
+            case 'text':
+                return options.map((option) => {
+                    return (
+                        <WrapperTextValue>{option}</WrapperTextValue>
+                    )
+                })
+            case 'checkbox':
                 return (
-                  <Rate disabled defaultValue={item} />
-
-                );
-              })}
-              </div>
-          );
-          
-
-      default:
-        return {};
+                    <Checkbox.Group style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '12px' }} onChange={onChange}>
+                        {options.map((option) => {
+                            return (
+                                <Checkbox style={{ marginLeft: 0 }} value={option.value}>{option.label}</Checkbox>
+                            )
+                        })}
+                    </Checkbox.Group>
+                )
+            case 'star':
+                return options.map((option) => {
+                    return (
+                        <div style={{ dispaly: 'flex' }}>
+                            <Rate style={{ fontSize: '12px' }} disabled defaultValue={option} />
+                            <span> {`tu ${option}  sao`}</span>
+                        </div>
+                    )
+                })
+            case 'price':
+                return options.map((option) => {
+                    return (
+                        <WrapperTextPrice>{option}</WrapperTextPrice>
+                    )
+                })
+            default:
+                return {}
+        }
     }
-  };
-  return (
-    <div className="Navbar">
-      Navbar
-      <div className="ListProducts">
-        <ul>
-          {renderContent("text", [
-            "Điện thoại",
-            "Laptop",
-            "Tai nghe",
-            "Chuột",
-            "Bàn phím",
-          ])}
-        </ul>
-      </div>
-      <div className="CheckBox">
-        {renderContent("CheckBox", [
-          {
-            value: "A",
-            name: "A",
-          },
-          {
-            value: "B",
-            name: "B",
-          },
-        ])}
-      </div>
-      <div className="Star">
-        {renderContent("Star",[ 5,4,3])}
-      </div>
-    </div>
-  );
-};
 
-export default Navbar;
+    return (
+        <div>
+            <WrapperLableText>Lable</WrapperLableText>
+            <WrapperContent>
+                {renderContent('text', ['Tu lanh', 'TV', 'MAYGIAT'])}
+            </WrapperContent>
+            {renderContent('star', [3,4,5])}
+
+        </div>
+    )
+}
+
+export default NavBarComponent
