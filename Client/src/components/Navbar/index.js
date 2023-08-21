@@ -1,75 +1,73 @@
-import { Checkbox, Col, Rate, Row } from 'antd'
-import React from 'react'
-import { WrapperContent, WrapperLableText, WrapperTextPrice, WrapperTextValue } from './style'
+import { Checkbox } from "antd";
+import React from "react";
+import "./style.js";
+const Navbar = () => {
+  const onChange = (checkedValues) => {
+    console.log("checked = ", checkedValues);
+  };
+  const renderContent = (type, option) => {
+    switch (type) {
+      case "text":
+        return option.map((item) => {
+          return <li key={item}>{item}</li>;
+        });
 
-<<<<<<< HEAD
-const NavBarComponent = () => {
-    const onChange = () => { }
-    const renderContent = (type, options) => {
-        switch (type) {
-            case 'text':
-                return options.map((option) => {
-                    return (
-                        <WrapperTextValue>{option}</WrapperTextValue>
-                    )
-                })
-            case 'checkbox':
-                return (
-                    <Checkbox.Group style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '12px' }} onChange={onChange}>
-                        {options.map((option) => {
-                            return (
-                                <Checkbox style={{ marginLeft: 0 }} value={option.value}>{option.label}</Checkbox>
-                            )
-                        })}
-                    </Checkbox.Group>
-                )
-            case 'star':
-                return options.map((option) => {
-                    return (
-                        <div style={{ dispaly: 'flex' }}>
-                            <Rate style={{ fontSize: '12px' }} disabled defaultValue={option} />
-                            <span> {`tu ${option}  sao`}</span>
-                        </div>
-                    )
-                })
-            case 'price':
-                return options.map((option) => {
-                    return (
-                        <WrapperTextPrice>{option}</WrapperTextPrice>
-                    )
-                })
-            default:
-                return {}
-        }
-=======
       case "CheckBox":
         return (
           <Checkbox.Group
             style={{
               width: "100%",
+              display: "flex",
+              flexDirection: "column",
             }}
             onChange={onChange}
           >
             {option.map((item) => {
-              return (<Checkbox key={item} value={item.value}>{item.name}</Checkbox>)
+              return (
+                <Checkbox key={item} value={item.value}>
+                  {item.name}
+                </Checkbox>
+              );
             })}
           </Checkbox.Group>
         );
+        case "star":
+          return(
+            {
+              
+            }
+          )
       default:
         return {};
->>>>>>> parent of b5938b8 (Merge branch 'main' of https://github.com/nhtt01/Mern-Ecommerce)
     }
+  };
+  return (
+    <div className="Navbar">
+      <div className="ListProducts">
+        <ul>
+          {renderContent("text", [
+            "Điện thoại",
+            "Laptop",
+            "Tai nghe",
+            "Chuột",
+            "Bàn phím",
+          ])}
+        </ul>
+      </div>
+      <div className="CheckBox">
+        {renderContent("CheckBox", [
+          {
+            value: "A",
+            name: "A",
+          },
+          {
+            value: "B",
+            name: "B",
+          },
+        ])}
+      </div>
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <WrapperLableText>Lable</WrapperLableText>
-            <WrapperContent>
-                {renderContent('text', ['Tu lanh', 'TV', 'MAYGIAT'])}
-            </WrapperContent>
-            {renderContent('star', [3,4,5])}
-
-        </div>
-    )
-}
-
-export default NavBarComponent
+export default Navbar;

@@ -7,7 +7,11 @@ const Header = () => {
   return (
     <WapperHeader>
       <Col span={6}>
-        <WapperTextHeader>TanTai</WapperTextHeader>
+        <WapperTextHeader>
+        <a href="/" style={{cursor:"pointer"}}>
+        TanTai
+        </a>
+        </WapperTextHeader>
       </Col>
       <Col span={12}>
         <Search

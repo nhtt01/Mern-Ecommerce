@@ -2,17 +2,18 @@ import React from "react";
 import { Card } from "antd";
 import { StarFilled } from "@ant-design/icons";
 import AsusVivobook from "../../assets/images/Products/asus-vivobook.jpg";
+
 import Iphone12Tim from "../../assets/images/Products/iphone-12-tim-1-600x600.jpg";
 import Official from "../../assets/images/Official.png"
 // import Iphone12Trang  from "../../assets/images/Products/iphone-12-trang-600x600.jpg";
 
-const CardProduct = () => {
+const Product = () => {
   return (
     <>
       <Card
         hoverable
-        style={{ width: 183 }}
-        bodyStyle={{ padding: "10px" }}
+        style={{ width: "200px" ,padding:"10px"}}
+        bodyStyle={{ padding: "10px 0" }}
         cover={
           <img
             alt="Iphone 12 Tím"
@@ -32,4 +33,5 @@ const CardProduct = () => {
   );
 };
 
-export default CardProduct;
+export default Product;
+

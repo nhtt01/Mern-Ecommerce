@@ -2,8 +2,8 @@ import React from "react";
 import { styled } from "styled-components";
 import Slider from "../../components/Slider";
 import TypeProducts from "../../components/TypeProducts";
-import CardProduct from "../../components/Card";
 import Navbar from "../../components/Navbar";
+import ListProduct from "../../components/Product/ListProduct";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,39 +11,17 @@ import ButtonComponent from "../../components/Button";
 const Home = () => {
   const arr = ["TV", "Laptop", "Điện thoại", "Tai nghe", "Loa"];
   return (
-    <div style={{ padding: "0 120px" }}>
+    <div className="container">
       <TypeProductst>
         {arr.map((item) => {
           return <TypeProducts name={item} key={item} />;
         })}
       </TypeProductst>
       <Slider />
-      <Row>
-        <Col md={2}>
-          <CardProduct />
-        </Col>
-        <Col md={2}>
-          <CardProduct />
-        </Col>
-        <Col md={2}>
-          <CardProduct />
-        </Col>
-        <Col md={2}>
-          <CardProduct />
-        </Col>
-        <Col md={2}>
-          <CardProduct />
-        </Col>
-        <Col md={2}>
-          <CardProduct />
-        </Col>
-        <Col md={2}>
-          <CardProduct />
-        </Col>
-        <Col md={2}>
-          <CardProduct />
-        </Col>
-      </Row>
+      <div className="ListProducts row mt-3">
+      <ListProduct colsValue={"home"}/>
+      </div>
+      <div className="text-center">
       <ButtonComponent
         textbutton="Xem Thêm"
         type="outline"
@@ -55,6 +33,8 @@ const Home = () => {
           borderRadius: "4px",
         }}
       />
+      </div>
+    
     </div>
   );
 };
