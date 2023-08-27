@@ -1,3 +1,5 @@
+@import 'variable';
+
 *,
 *:before,
 *:after {
@@ -32,6 +34,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1;
+  font-family: Inter,Helvetica,Arial,sans-serif !important;
 }
 
 ul,li{
@@ -39,3 +42,5 @@ ul,li{
   padding: 0 !important;
   margin: 0 !important;
 }
+
+

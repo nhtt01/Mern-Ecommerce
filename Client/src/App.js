@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import {BrowserRouter as Router , Routes,Route} from 'react-router-dom'
 import Default from './components/Default';
 import Header from './components/Header';
-import './App.css';
+import './App.scss';
 import { routes } from './Routes';
  function App() {
 
