@@ -1,4 +1,4 @@
-const UserRouter = require('./RouterUser')
+const UserRouter = require('./UserRouter')
 const routes = (app)=>{
 app.use('/api/user',UserRouter)
 }
