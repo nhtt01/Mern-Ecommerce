@@ -1,10 +1,10 @@
-POST http://localhost:3003/api/user
+POST http://localhost:3003/api/user/sign-in
 Content-Type: application/json
 
 {
-    "name":"test1",
-    "email" : "Test1@gmail.com",
-    "password": "test123",
+    "name":"test",
+    "email" : "Test43@gmail.com",
+    "password": "tesst123",
     "confirmPassword": "test123",
     "phone":"0323235"
 }
