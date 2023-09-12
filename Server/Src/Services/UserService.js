@@ -78,4 +78,35 @@ const loginUser = (userLogin) => {
   });
 };
 
-module.exports = { createUser, loginUser };
+
+
+
+
+const updateUser = (idUser,dataUser) => {
+    return new Promise(async (resolve, reject) => {
+   
+      try {
+        const checkUser = await User.findOne({
+          _id: idUser,
+        });
+    
+        if (checkUser === null) {
+            resolve({
+              status: "OK !",
+              message: "The User is not defined !",
+            });
+        }
+          const updateUser = await User.findByIdAndUpdate(idUser,dataUser,{new:true});
+          resolve({
+            status: "OK !",
+            message: "Update Success !",
+           data: updateUser
+          });
+
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
+  
+module.exports = { createUser, loginUser,updateUser };
