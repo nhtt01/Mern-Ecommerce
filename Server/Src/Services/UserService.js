@@ -1,4 +1,6 @@
+const User = require("../models/UserModel");
 const createUser = (newUser)=>{
+    console.log(newUser)
     return new Promise( async(resolve,reject)=>{
         const {name,email,password,confirmPassword,phone} = newUser;
         console.log(newUser)
@@ -20,4 +22,4 @@ const createUser = (newUser)=>{
     })
 }
 
-module.exports = createUser;
+module.exports = {createUser};
