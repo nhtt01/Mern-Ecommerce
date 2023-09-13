@@ -117,8 +117,39 @@ const updateUser = async (req, res) => {
   }
 };
 
+
+
+const deleteUser = async (req, res) => {
+  try {
+    const idUser = req.params.id;
+
+    if (!idUser) {
+      return res.status(200).json({
+        status: "ERR",
+        message: "The User not found !!",
+      });
+    }
+
+    const response = await UserService.deleteUser(idUser );
+    if (response) {
+      return res.status(200).json(response);
+    } else {
+      return res.status(400).json({
+        status: "ERR",
+        message: "No connect UserService",
+      });
+    }
+  } catch (e) {
+    return res.status(404).json({
+      message: e,
+    });
+  }
+};
+
+
 module.exports = {
   createUser,
   loginUser,
   updateUser,
+  deleteUser
 };

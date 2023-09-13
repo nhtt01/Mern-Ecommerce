@@ -78,10 +78,6 @@ const loginUser = (userLogin) => {
   });
 };
 
-
-
-
-
 const updateUser = (idUser,dataUser) => {
     return new Promise(async (resolve, reject) => {
    
@@ -107,6 +103,32 @@ const updateUser = (idUser,dataUser) => {
         reject(error);
       }
     });
-  };
+};
+
+const deleteUser = (idUser) => {
+  return new Promise(async (resolve, reject) => {
+ 
+    try {
+      const checkUser = await User.findOne({
+        _id: idUser,
+      });
   
-module.exports = { createUser, loginUser,updateUser };
+      if (checkUser === null) {
+          resolve({
+            status: "OK !",
+            message: "The User is not defined !",
+          });
+      }
+ await User.findByIdAndDelete(idUser);
+        resolve({
+          status: "OK !",
+          message: "Delete Success !",
+        });
+
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+  
+module.exports = { createUser, loginUser,updateUser,deleteUser };
